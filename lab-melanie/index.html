@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 41 - Google OAuth</title>
+  </head>
+  <body>
+    <h1>Lab 41 - Google OAuth</h1>
+    <script>
+      let a = document.createElement('a');
+
+      let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+      let clientIDQuery = `client_id=345341562059-buvijb2pb5ik1kmuruc0ls12qs9vautb.apps.googleusercontent.com`;
+      let responseTypeQuery = 'response_type=code';
+      let scopeQuery = 'scope=openid%20profile%20email';
+      let promptQuery = 'prompt=consent';
+      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code'
+
+      let formattedURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
+
+      a.setAttribute('href', formattedURL);
+      a.textContent = 'login with Google';
+      document.body.append(a);
+    </script>
+  </body>
+</html>
