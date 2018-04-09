@@ -1,79 +1,37 @@
-# ![cf](https://i.imgur.com/7v5ASc8.png) Instaclone
+# ![cf](https://i.imgur.com/7v5ASc8.png) Lab 41: OAuth - Part 1
 
-Lab 37: Cookies & Auth  
-Lab 38: Asset Uploads
-Lab 39: Complete Your Frontend App
-
-## Front-End Configuration
+## App Directory
 * **README.md**
 * **.gitignore**
 * **.eslintrc**
 * **.eslintignore**
 * **package.json**
-  * a `build` script has been configured for building the app with webpack
-  * a `watch` script has been configured for watching the app with webpack-dev-server
-  * a `test` script has been configured for running tests with Jest
-* **webpack.config.js**
-* **babelrc**
-* **src/** - contains frontend code
-* **src/index.html**
-* **src/main.js** - contains entire app
-* **src/components** - contains app components (see list below for all components)
-* **src/actions**
-* **src/reducers**
-* **src/lib**
-* **src/test**
-* **src/test/lib** - contains mock data for tests
-* **src/style**
-* **src/style/base**
-* **src/style/lib**
-* **src/style/module** - contains SASS partials for all components
-* **src/assets/** - contains favicon icon and SVG icons
+  * a `start` script has been configured for running the server
+* **index.html**
+* **server.js**
+
+## .env Configuration
+To successfully run this application, the user must create up a `.env` file locally with the following fields:
+```
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+CLIENT_URL=http://localhost:8080
+API_URL=http://localhost:3000
+```
+The user must create a project and obtain credentials for the `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` fields. The `GOOGLE_CLIENT_ID` key must also be inserted into the `index.html` file on line 12:
+
+```
+let clientIDQuery = `client_id=<insert GOOGLE_CLIENT_ID here>`;
+```
+
 
 ## Installation
 #### Back-end
-1. This app uses the back-end code that is forked from [Sluggram](https://github.com/slugbyte/sluggram). To start, download the files within this repository's `back-end` folder.
-2. `cd` to the `back-end` folder and run `npm i`
-3. Use `npm run start` to run the app locally (make sure a local Mongo database is running) on `localhost:3000`.
-4. Verify your server is running using a local `.env` file before launching the front-end app.
+1. To start, download this repository and run `npm i`
+2. Set up a .env file per the instructions above
+3. Use `npm run start` to run the app locally on `localhost:3000`.
+4. Verify your server is running before launching the front-end app.
 
 #### Front-end
-1. Once you've downloaded this repo's code, `cd` to the repository directory and run `npm i`
-2. Use `npm run watch` to run the app locally with a local `.dev.env` file.
-3. Navigate to `localhost:8080` to sign up for the app and subsequently sign in. Create a profile by navigating to the `profile settings` link on the nav bar.
-
-## Application Details
-* This app uses `React` and is comprised of the following components:
-
-```
-<App />
-  <Provider />
-    <BrowserRouter />
-      <Route />
-        <NavBar />
-          <Icon />
-        <AuthDashboard />
-          <AuthForm />
-          <ProfileContainer />
-            <ProfileForm />
-            <ProfileAvatar />
-          <PhotoDashboard />
-            <PhotoForm />
-            <PhotoItem />
-```
-
-## Redux
-This app also uses `Redux` with the following reducers. Action creators are built for each interaction.
-
-* `TOKEN_SET`
-* `LOGOUT`
-* `PROFILE_CREATE`
-* `PROFILE_UPDATE`
-* `PHOTO_FETCH`
-* `PHOTO_CREATE`
-* `PHOTO_UPDATE`
-* `PHOTO_DELETE`
-
-## Attribution
-* Polaroid icon by Rémy Médard, found at the [Noun Project](https://thenounproject.com/term/polaroid/10295/)
-* Pencil and trash can icons from [iconmonstr.com](https://iconmonstr.com/)
+1. Once the back-end portion of your app is running, use `live-server` to run your front-end code
+2. Click on the link within your browser window and authorize usage of a Google account and you're good to go.
