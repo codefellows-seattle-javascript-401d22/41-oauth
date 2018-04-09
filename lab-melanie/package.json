@@ -1,0 +1,19 @@
+{
+  "name": "lab-melanie",
+  "version": "1.0.0",
+  "description": "Lab 37: Cookies & Auth   Lab 38: Asset Uploads Lab 39: Complete Your Frontend App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "superagent": "^3.8.2"
+  }
+}
