@@ -5,14 +5,13 @@ const call = require('superagent');
 const dotenv = require('dotenv');
 
 dotenv.load();
-
 const app = express();
+
 
 app.get('/oauth/google/code', function(req, res) {
   if(!req.query.code) {
     res.redirect(process.env.CLIENT_URL);
   } else {
-    console.log('Code:', req.query.code);
     call.post('https://www.googleapis.com/oauth2/v4/token')
     .type('form')
     .send({
@@ -23,12 +22,10 @@ app.get('/oauth/google/code', function(req, res) {
       redirect_uri: `${process.env.API_URL}/oauth/google/code`
     })
     .then(response => {
-      console.log('::::initial req:::::', response.body);
       return call.get('https://www.googleapis.com/plus/v1/people/me/openIdConnect')
       .set('Authorization', `Bearer ${response.body.access_token}`);
     })
     .then(response => {
-      console.log(':::openId:::', response.body);
       res.cookie('X-some-cookie', 'some token');
       res.redirect(process.env.CLIENT_URL);
     })
@@ -38,3 +35,6 @@ app.get('/oauth/google/code', function(req, res) {
 app.listen(3000, () => {
   console.log('Server up on 3000');
 });
+      
+    
+      
