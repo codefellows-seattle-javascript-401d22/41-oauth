@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google OAuth Login</title>
+  </head>
+  <body>
+    <h1>Google OAuth Demo</h1>
+
+    <script>
+      let a = document.createElement('a');
+      let AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+      let clientIDQuery = 'client_id=523985359805-vfetjvr3u05q0rcmf2srdokutjcj212v.apps.googleusercontent.com';
+      let responseTypeQuery = 'response_type=code';
+      let scopeQuery = 'scope=openid%20profile%20email';
+      let promptQuery = 'prompt=consent';
+      let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code';
+      let formatedURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`;
+
+      a.setAttribute('href', formatedURL);
+      a.textContent = 'login with google';
+      console.log('formattedURL', formatedURL);
+      document.body.append(a);
+    </script>
+  </body>
+</html>
