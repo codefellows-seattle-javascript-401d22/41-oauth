@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const superagent = requre('superagent');
+const superagent = require('superagent');
 const dotenv = require('dotenv');
 const app = express();
 
@@ -19,7 +19,7 @@ app.get('/oauth/google/code', (req, res) => {
         grant_type: 'authorization_code',
         client_id: process.env.GOOGLE_CLIENT_ID,
         client_secret: process.env.GOOGLE_CLIENT_SECRET,
-        redirect_url: `${process.env.API_URL}/oauth/google/code`,
+        redirect_uri: `${process.env.API_URL}/oauth/google/code`,
       })
       .then(response => {
         console.log('Response AFTER code is given:', response.body);
